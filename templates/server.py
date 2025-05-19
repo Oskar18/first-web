@@ -27,6 +27,10 @@ def about():
 def cantact():
 	return render_template("contact.html")
 
+@app.route("/calculator/<int:a>/<b>")
+def calculator(a, b):
+	b = int(b)
+	return render_template("calculator.html", result=a+b)
 
 
 
