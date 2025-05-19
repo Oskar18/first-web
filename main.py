@@ -32,9 +32,17 @@ def calculator(a, b):
 	b = int(b)
 	return render_template("calculator.html", result=a+b)
 
+@app.route("/products")
+def products():
+	products = [(1, "mrkev"), (2, "jabko"), (3, "avokado"), (4, "rajče")]
+	return render_template("products.html", products=products)
 
+@app.route("/product/<int:id>")
+def product(id):
+	magic = id % 2
+	return render_template("product.html", magic=magic)
 
 
 
 if __name__ == "__main__":
-	app.run(debug=True,port=5010)
+	app.run(debug=True, port=5010)
